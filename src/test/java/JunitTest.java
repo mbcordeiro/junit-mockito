@@ -1,7 +1,9 @@
+import com.matheuscordeiro.MyBean;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -71,7 +73,7 @@ public class JunitTest {
 
     @Test
     void assumptionThat() {
-        String someString = "Just a string";
+        var someString = "Just a string";
         assumingThat(
                 someString.equals("Just a string"),
                 () -> assertEquals(2 + 2, 4)
@@ -80,7 +82,7 @@ public class JunitTest {
 
     @Test
     void shouldThrowException() {
-        Throwable exception = assertThrows(UnsupportedOperationException.class, () -> {
+        var exception = assertThrows(UnsupportedOperationException.class, () -> {
             throw new UnsupportedOperationException("Not supported");
         });
         assertEquals(exception.getMessage(), "Not supported");
@@ -92,5 +94,31 @@ public class JunitTest {
         assertThrows(IllegalArgumentException.class, () -> {
             Integer.valueOf(str);
         });
+    }
+
+    @Test
+    void givenEvenNumber_whenCheckingIsNumberEven_thenTrue() {
+        var bean = new MyBean();
+        var result = bean.isNumberEven(8);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void givenOddNumber_whenCheckingIsNumberEven_thenFalse() {
+        var bean = new MyBean();
+        var result = bean.isNumberEven(3);
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void givenLowerThanTenNumber_whenCheckingIsNumberEven_thenResultUnderTenMillis() {
+        var bean = new MyBean();
+        Assertions.assertTimeout(Duration.ofMillis(10), () -> bean.isNumberEven(3));
+    }
+
+    @Test
+    void givenNull_whenCheckingIsNumberEven_thenNullPointerException() {
+        var bean = new MyBean();
+        Assertions.assertThrows(NullPointerException.class, () -> bean.isNumberEven(null));
     }
 }
