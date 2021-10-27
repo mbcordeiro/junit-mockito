@@ -5,8 +5,6 @@
 -src/main/java/com/matheuscordeiro/MyMain.java,e\4\e49c9772763be0b5ad0bd7d23ec066a11a034673
 L
 src/test/java/JunitTest.java,a\f\af413fe006ff0b1df82617d244d26a3bdf2257de
-Q
-!src/test/java/BeforeEachTest.java,7\8\78d67c64d0ec6e0ea2f22e8200d799ca92c1ee0f
 j
 :src/main/java/com/matheuscordeiro/user/UserRepository.java,9\b\9b1372a66a4125630817f121aa0aed88171ff90f
 `
