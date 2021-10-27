@@ -138,4 +138,52 @@ public class MockitoAnnotationTest {
     public void whenMockitoAnnotationsUninitialized_thenNPEThrown() {
         when(mockedListString.size()).thenReturn(1);
     }
+
+    @Test(expected = NullPointerException.class)
+    public void whenConfigNonVoidReturnMethodToThrowEx_thenExIsThrown() {
+        MyDictionary dictMock = mock(MyDictionary.class);
+        when(dictMock.getMeaning(anyString()))
+                .thenThrow(NullPointerException.class);
+
+        dictMock.getMeaning("word");
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void whenConfigVoidReturnMethodToThrowEx_thenExIsThrown() {
+        MyDictionary dictMock = mock(MyDictionary.class);
+        doThrow(IllegalStateException.class)
+                .when(dictMock)
+                .add(anyString(), anyString());
+
+        dictMock.add("word", "meaning");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void whenConfigNonVoidReturnMethodToThrowExWithNewExObj_thenExIsThrown() {
+        MyDictionary dictMock = mock(MyDictionary.class);
+        when(dictMock.getMeaning(anyString()))
+                .thenThrow(new NullPointerException("Error occurred"));
+
+        dictMock.getMeaning("word");
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void whenConfigVoidRetunMethodToThrowExWithNewExObj_thenExIsThrown() {
+        MyDictionary dictMock = mock(MyDictionary.class);
+        doThrow(new IllegalStateException("Error occurred"))
+                .when(dictMock)
+                .add(anyString(), anyString());
+
+        dictMock.add("word", "meaning");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void givenSpy_whenConfigNonVoidReturnMethodToThrowEx_thenExIsThrown() {
+        MyDictionary dict = new MyDictionary();
+        MyDictionary spy = Mockito.spy(dict);
+        when(spy.getMeaning(anyString()))
+                .thenThrow(NullPointerException.class);
+
+        spy.getMeaning("word");
+    }
 }
