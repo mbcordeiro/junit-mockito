@@ -17,17 +17,3 @@ f
 6src/main/java/com/matheuscordeiro/user/MailClient.java,2\9\29501dacc16040c41bd97d159d1a2549a9a9519c
 n
 >src/main/java/com/matheuscordeiro/user/DefaultUserService.java,b\4\b4369a7564ec88ebfb96cd84f16f3c7347aed5db
-m
-=src/main/java/com/matheuscordeiro/user/SettingRepository.java,f\5\f599541cd539f91d520497382d3e4955e910b495
-V
-&src/test/java/UserServiceUnitTest.java,2\5\252d19f1c068bc1531b098cb6845411e8d60bdde
-P
- src/test/java/BeforeAllTest.java,6\0\60165cf59d9bea64e2e580c331a81af43285c934
-R
-"src/test/java/BeforeClassTest.java,b\f\bff3881db90ad3eccd5892db740186f0c27dfd52
-M
-src/test/java/BeforeTest.java,9\f\9f6fc97ca28a57eada7fc4fd0e90ec70304a5ee5
-P
- src/test/java/ExceptionTest.java,1\b\1bcbc0606f4cf15545a69d3c3d1c6494235c184c
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
