@@ -1,0 +1,5 @@
+
+o
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Š°¢þË/
+[
+java:S3400"9Remove this method and declare a constant for this value.(»í éýÿÿÿÿ8²Á¡þË/
